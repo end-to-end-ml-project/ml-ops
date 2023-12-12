@@ -1,0 +1,8 @@
+# nix stuff
+.devenv/
+
+# python stuff
+__pycache__/
+
+# mlflow stuff
+mlruns/
