@@ -18,16 +18,32 @@ For now the traning set is still rather small: ~100 "meta-images" generated from
 The purpose of this dataset is to validate the project's pipeline, not to train a perfect model.
 
 ### Specifics of the ML model
-We use an image classifier on a "meta-image" created from different views around a 3D model of a working piece
-Several models are available for now:
-- efficientnet:
-    - input size: 224x224
-    - lightweight model
-    - SOTA accuracy:
-- VGG16:
-    - input size: 
-    - heavy model:
-    - SOTA accuracy:
+We use an image classifier on the "meta-images" created from different views around a 3D model of a working piece.
+The following EfficientNet models are available (only one familly for now, others should be added later):
+
+#### EfficientNet
+
+##### Documentation
+- [arxiv paper](https://arxiv.org/abs/1905.11946)
+- [EfficientNet in Keras](https://keras.io/api/applications/efficientnet/)
+- [Fine Tuning with Keras](https://keras.io/examples/vision/image_classification_efficientnet_fine_tuning/)
+
+##### Input size
+|Base model     |Resolution|
+|---------------|----------|
+|EfficientNetB0 | 224      |
+|EfficientNetB1 | 240      |
+|EfficientNetB2 | 260      |
+|EfficientNetB3 | 300      |
+|EfficientNetB4 | 380      |
+|EfficientNetB5 | 456      |
+|EfficientNetB6 | 528      |
+|EfficientNetB7 | 600      |
+
+##### Comments:
+- [Transfer learning](https://keras.io/guides/transfer_learning/): only the last XX layers are retrained on our dataset, the rest of the CNN's weights are copied from the training on the imagenet dataset
+- lightweight model
+- SOTA accuracy:
 
 ### Training process
 The logging of the hyperparameters used during training is achieved with MLflow
