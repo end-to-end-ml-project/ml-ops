@@ -47,9 +47,14 @@ The following EfficientNet models are available (only one familly for now, other
 
 ### Training process
 The logging of the hyperparameters used during training is achieved with MLflow
-- Data augmentation:
-- HyperParameter tuning: 
+- Data augmentation: switch image positions randomly inside the meta-image (+maybe some additional rotations)
+- HyperParameter tuning:
+    - base model: pretrained weights from the imagenet dataset (14 million "images in context", 1000 different classes)
+    - maxPooling layer
+    - top layer is exchanged with a dense layer of 5 neurons
 - Batches/Epochs:
+    - start with a batch of 16 images
+    - Epochs: until the model starts overfiting (early stopping)
 
 ### Performance metrics:
 The logging of the model's metrics is also carried out with MLflow. This ensures that the most performant model (not necessarilly the latest) is used for inference.
@@ -59,7 +64,7 @@ The following metrics are tracked:
 - Recall ?
 - F1-Score ?
 
-The model's loss is tracked as well.
+The model's loss is tracked as well (used for early stopping)
 
 
 ### Criteria for usability:
