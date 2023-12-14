@@ -11,7 +11,7 @@ Here are the main steps:
 - Import the 3D model (for now only .stl format is supported)
 - Apply a normal map texture
 - Generate the different views of the textured model with different rotation increments
-- Create a 10*10 image grid with the different views of the working piece, this final imgage is the "meta-image" and will be used to train the model.
+- Create a 6x6 image grid with the different views of the working piece, this final imgage is the "meta-image" and will be used to train the model.
 
 ### Number of images used:
 For now the traning set is still rather small: ~100 "meta-images" generated from 10 working pieces and some data augmentation.  
@@ -76,4 +76,6 @@ Accuracy > 90% (or something like that)
 It would be interesting to compare the performance achieved with the image classification model with another use the face normals as vector embedings to train another classification model
 
 
-### Technique for image superposition and angle changes ?
+# Installation
+
+[tensorflow-versions](https://www.tensorflow.org/install/source#gpu)
